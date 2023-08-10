@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center|top" >
+
+    <TextView
+        android:id="@+id/echamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="top|center"
+        android:text="Electronics Champ"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:background="#10000000"
+        android:layout_margin="10dp"
+        android:hint=" Enter the Address of HC-05 BT Module"
+        tools:ignore="MissingConstraints"
+        android:layout_below="@id/echamp"/>
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Connect"
+        android:layout_below="@id/address"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/front"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="140dp"
+        android:layout_marginRight="140dp"
+        android:layout_below="@id/connect"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Front" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="140dp"
+        android:layout_marginRight="140dp"
+        android:layout_below="@id/front"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/left"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="140dp"
+        android:layout_marginRight="140dp"
+        android:layout_below="@id/back"
+        android:layout_height="wrap_content"
+        android:text="Left" />
+
+    <Button
+        android:id="@+id/right"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="140dp"
+        android:layout_marginRight="140dp"
+        android:layout_below="@id/left"
+        android:layout_height="wrap_content"
+        android:text="Right" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/right"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+</RelativeLayout>

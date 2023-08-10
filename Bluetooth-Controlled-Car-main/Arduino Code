@@ -1,0 +1,112 @@
+uint8_t rightMotorForward = 5;
+uint8_t rightMotorBackward = 6;
+uint8_t leftMotorForward = 10;
+uint8_t leftMotorBackward = 11;
+uint8_t data = 0;
+uint8_t prevData = data;
+
+void setup() {
+
+  for (int i = 9; i < 13; i = i + 1) {
+    pinMode(i, OUTPUT);
+  }
+
+  Serial.begin(9600);
+
+}
+
+void loop() {
+
+  if (Serial.available()) {
+    
+    data = Serial.read();
+    Serial.println(data);
+    
+  }
+
+  if (prevData != data) {
+
+    switch (data) {
+
+      case 0:
+        stop();
+        break;
+      
+      case 1:
+        front();
+        break;
+
+      case 2:
+        back();
+        break;
+
+      case 3:
+        left();
+        break;
+
+      case 4:
+        right();
+        break;
+
+    }
+
+    prevData = data;
+    
+  }
+
+}
+
+//function to move the car forward
+void front() {
+
+  analogWrite(leftMotorForward, 128);
+  analogWrite(rightMotorForward, 128);
+  analogWrite(leftMotorBackward, 0);
+  analogWrite(rightMotorBackward, 0);
+  Serial.println("Front");
+
+}
+
+//function to move the car backward
+void back() {
+
+  analogWrite(leftMotorForward, 0);
+  analogWrite(rightMotorForward, 0);
+  analogWrite(leftMotorBackward, 128);
+  analogWrite(rightMotorBackward, 128);
+  Serial.println("Back");
+
+}
+
+//function to turn the car left
+void left() {
+
+  analogWrite(leftMotorForward, 0);
+  analogWrite(rightMotorForward, 128);
+  analogWrite(leftMotorBackward, 128);
+  analogWrite(rightMotorBackward, 0);
+  Serial.println("Left");
+
+}
+
+//function to turn the car right
+void right() {
+
+  analogWrite(leftMotorForward, 128);
+  analogWrite(rightMotorForward, 0);
+  analogWrite(leftMotorBackward, 0);
+  analogWrite(rightMotorBackward, 128);
+  Serial.println("Right");
+
+}
+
+//function to stop the car
+void stop() {
+
+  digitalWrite(leftMotorForward, LOW);
+  digitalWrite(rightMotorForward, LOW);
+  digitalWrite(leftMotorBackward, LOW);
+  digitalWrite(rightMotorBackward, LOW);
+  Serial.println("Stop");
+
+}
